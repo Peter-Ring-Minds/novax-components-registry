@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hello",
+  "title": "Hello",
+  "description": "A simple hello component",
+  "files": [
+    {
+      "path": "registry/default/blocks/hello/hello.tsx",
+      "content": "export function Hello({ name }: { name: string }) {\n  return (\n    <div className=\"rounded-md bg-muted p-4 text-sm\">\n      Hello, {name} 👋\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

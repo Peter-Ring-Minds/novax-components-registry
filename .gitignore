@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# macOS
+.DS_Store
+
+# build outputs (this repo does not need these)
+dist/
+build/
+coverage/
+
+# editors
+.vscode/
+.idea/
+
+# env files
+.env
+.env.*
+
+# Keep published registry artifacts committed for GitHub raw hosting
+# (do NOT ignore public/r)

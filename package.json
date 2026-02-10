@@ -1,0 +1,7 @@
+{
+  "name": "novax-component-registry",
+  "private": true,
+  "scripts": {
+    "registry:build": "npx shadcn@latest build"
+  }
+}

@@ -1,10 +1,19 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "evira",
-  "components": [
+  "name": "novax-components",
+  "homepage": "https://github.com/Peter-Ring-Minds/novax-components-registry",
+  "items": [
     {
       "name": "hello",
-      "path": "components/hello.json"
+      "type": "registry:component",
+      "title": "Hello",
+      "description": "A simple hello component",
+      "files": [
+        {
+          "path": "files/components/hello.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }

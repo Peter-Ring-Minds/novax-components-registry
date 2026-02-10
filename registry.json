@@ -1,0 +1,10 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "evira",
+  "components": [
+    {
+      "name": "hello",
+      "path": "components/hello.json"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "hello",
+  "type": "component",
+  "files": [
+    {
+      "path": "components/hello.tsx",
+      "source": "files/components/hello.tsx"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": []
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mega-widget",
+  "title": "Mega Widget",
+  "description": "Example of a larger component installed into a subfolder with internal subcomponents.",
+  "files": [
+    {
+      "path": "registry/default/blocks/mega-widget/components/mega-widget/index.tsx",
+      "content": "import { useMegaWidget } from \"../../hooks/use-mega-widget\"\nimport type { MegaWidgetItem } from \"../../lib/mega-widget\"\nimport { WidgetBody } from \"./_components/widget-body\"\nimport { WidgetFooter } from \"./_components/widget-footer\"\nimport { WidgetHeader } from \"./_components/widget-header\"\n\nexport type MegaWidgetProps = {\n  title?: string\n  items?: MegaWidgetItem[]\n}\n\nexport function MegaWidget({ title = \"Mega Widget\", items }: MegaWidgetProps) {\n  const { count, increment, reset } = useMegaWidget()\n\n  const resolvedItems: MegaWidgetItem[] =\n    items ??\n    [\n      { id: \"a\", label: \"First internal row\" },\n      { id: \"b\", label: \"Second internal row\" },\n      { id: \"c\", label: \"Third internal row\" },\n    ]\n\n  return (\n    <section className=\"rounded-md border bg-background\">\n      <WidgetHeader title={title} count={count} />\n      <WidgetBody items={resolvedItems} />\n      <WidgetFooter onIncrement={increment} onReset={reset} />\n    </section>\n  )\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/default/blocks/mega-widget/components/mega-widget/_components/widget-header.tsx",
+      "content": "export type WidgetHeaderProps = {\n  title: string\n  count: number\n}\n\nexport function WidgetHeader({ title, count }: WidgetHeaderProps) {\n  return (\n    <header className=\"flex items-center justify-between border-b p-4\">\n      <div>\n        <div className=\"text-sm font-medium\">{title}</div>\n        <div className=\"text-xs text-muted-foreground\">Internal parts live in a subfolder</div>\n      </div>\n      <div className=\"text-xs text-muted-foreground\">Clicks: {count}</div>\n    </header>\n  )\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/default/blocks/mega-widget/components/mega-widget/_components/widget-body.tsx",
+      "content": "import type { MegaWidgetItem } from \"../../../lib/mega-widget\"\nimport { WidgetRow } from \"./widget-row\"\n\nexport type WidgetBodyProps = {\n  items: MegaWidgetItem[]\n}\n\nexport function WidgetBody({ items }: WidgetBodyProps) {\n  return (\n    <div className=\"p-4\">\n      <div className=\"space-y-2\">\n        {items.map((item) => (\n          <WidgetRow key={item.id} item={item} />\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/default/blocks/mega-widget/components/mega-widget/_components/widget-row.tsx",
+      "content": "import type { MegaWidgetItem } from \"../../../lib/mega-widget\"\n\nexport type WidgetRowProps = {\n  item: MegaWidgetItem\n}\n\nexport function WidgetRow({ item }: WidgetRowProps) {\n  return (\n    <div className=\"flex items-center justify-between rounded-md bg-muted px-3 py-2 text-sm\">\n      <span>{item.label}</span>\n      <span className=\"text-xs text-muted-foreground\">#{item.id}</span>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/default/blocks/mega-widget/components/mega-widget/_components/widget-footer.tsx",
+      "content": "export type WidgetFooterProps = {\n  onIncrement: () => void\n  onReset: () => void\n}\n\nexport function WidgetFooter({ onIncrement, onReset }: WidgetFooterProps) {\n  return (\n    <footer className=\"flex items-center justify-end gap-2 border-t p-4\">\n      <button\n        type=\"button\"\n        className=\"rounded-md border bg-background px-3 py-2 text-sm\"\n        onClick={onReset}\n      >\n        Reset\n      </button>\n      <button\n        type=\"button\"\n        className=\"rounded-md bg-primary px-3 py-2 text-sm text-primary-foreground\"\n        onClick={onIncrement}\n      >\n        Increment\n      </button>\n    </footer>\n  )\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/default/blocks/mega-widget/hooks/use-mega-widget.ts",
+      "content": "import * as React from \"react\"\n\nexport function useMegaWidget() {\n  const [count, setCount] = React.useState(0)\n\n  const increment = React.useCallback(() => setCount((c) => c + 1), [])\n  const reset = React.useCallback(() => setCount(0), [])\n\n  return { count, increment, reset }\n}\n",
+      "type": "registry:hook"
+    },
+    {
+      "path": "registry/default/blocks/mega-widget/lib/mega-widget.ts",
+      "content": "export type MegaWidgetItem = {\n  id: string\n  label: string\n}\n",
+      "type": "registry:lib"
+    }
+  ],
+  "type": "registry:block"
+}
